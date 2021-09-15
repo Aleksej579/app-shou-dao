@@ -1,5 +1,5 @@
 # Environment Configuration
-.env
+#.env
 
 # Dependency directory
 node_modules
@@ -15,7 +15,7 @@ logs
 *.log
 
 # ngrok tunnel file
-config/tunnel.pid
+#config/tunnel.pid
 
 # next build output
-.next/
+#.next/
