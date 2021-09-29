@@ -9,17 +9,17 @@ import ResourceListWithProducts from './components/ResourceList';
 const img = 'https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg';
 
 // const url_ = `https://05ce07551a14094626d7611a5aa64254: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@shopyfyliquid.myshopify.com/admin/api/2021-07/script_tags.json`;
-// const url_ = `https://shopyfyliquid.myshopify.com/admin/api/2021-07/script_tags.json`;
-// let options = {
-//   method: 'post',
-//   script_tag: {
-//     event: 'onload',
-//     src: 'https://unpkg.com/vue@next'
-//   }
-// }
-// fetch(url_, options)
-//   .then(response => response.json())
-//   .then(result => response.text())
+const url_ = `https://shopyfyliquid.myshopify.com/admin/api/2021-07/script_tags.json`;
+let options = {
+  method: 'post',
+  script_tag: {
+    event: 'onload',
+    src: 'https://unpkg.com/vue@next'
+  }
+}
+fetch(url_, options)
+  .then(response => response.json())
+  .then(result => response.text())
 
 
 // body: JSON.stringify({
