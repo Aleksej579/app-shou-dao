@@ -22,22 +22,14 @@ const img = 'https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg';
 //   .then(result => response.text())
 
 
-// body: JSON.stringify({
-//   "script_tag": {
-//     "event": "onload"
-//     , "src": "https://21c3ed9616a8.ngrok.io/scripttag.js"
-//     , "display_scope": "all"
-//   }
-// })
+import Shopify, { DataType } from '@shopify/shopify-api';
 
-// import Shopify, { DataType } from '@shopify/shopify-api';
-
-// const client = new Shopify.Clients.Rest('shopyfyliquid.myshopify.com', accessToken);
-// const data = client.post({
-//   path: 'script_tags',
-//   body: { "script_tag": { "event": "onload", "src": "https:\/\/djavaskripped.org\/fancy.js" } },
-//   type: DataType.JSON,
-// });
+const client = new Shopify.Clients.Rest('shopyfyliquid.myshopify.com', accessToken);
+const data = client.post({
+  path: 'script_tags',
+  body: { "script_tag": { "event": "onload", "src": "https:\/\/djavaskripped.org\/fancy.js" } },
+  type: DataType.JSON,
+});
 
 
 
