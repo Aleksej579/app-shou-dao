@@ -19,6 +19,7 @@ const UPDATE_PRICE = gql`
   }
 `;
 
+
 class ApplyRandomPrices extends React.Component {
     static contextType = Context;
 
