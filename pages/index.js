@@ -8,32 +8,33 @@ import ResourceListWithProducts from './components/ResourceList';
 
 const img = 'https://cdn.shopify.com/s/files/1/0757/9955/files/empty-state.svg';
 
-// const url_ = `https://05ce07551a14094626d7611a5aa64254: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@shopyfyliquid.myshopify.com/admin/api/2021-07/script_tags.json`;
-// const url_ = `https://shopyfyliquid.myshopify.com/admin/api/2021-07/script_tags.json`;
-// let options = {
-//   method: 'post',
-//   script_tag: {
-//     event: 'onload',
-//     src: 'https://unpkg.com/vue@next'
-//   }
-// }
-// fetch(url_, options)
-//   .then(response => response.json())
-//   .then(result => response.text())
+//get all scriptTag
+var status = function (response) {
+  if (response.status !== 200) {
+    return Promise.reject(new Error(response.statusText))
+  }
+  return Promise.resolve(response)
+}
+var json = function (response) {
+  return response.json()
+}
 
-
-import Shopify, { DataType } from '@shopify/shopify-api';
-
-const client = new Shopify.Clients.Rest('shopyfyliquid.myshopify.com', accessToken);
-const data = client.post({
-  path: 'script_tags',
-  body: { "script_tag": { "event": "onload", "src": "https:\/\/djavaskripped.org\/fancy.js" } },
-  type: DataType.JSON,
-});
-
-
-
-
+const token = '5e159ce0726f8ed77db9e5c8df3c46e2';
+fetch('https://shopyfyliquid.myshopify.com/admin/api/2021-07/script_tags.json', {
+  mode: 'no-cors',
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": `token ${token}`
+  }
+})
+  .then(status)
+  .then(json)
+  .then(function (data) {
+    console.log('data', data)
+  })
+  .catch(function (error) {
+    console.log('error', error)
+  })
 
 class Index extends React.Component {
   state = { open: false };
